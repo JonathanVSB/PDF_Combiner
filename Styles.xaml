@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+	<Style x:Key="RoundedCornerButton" TargetType="Button">
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="FontFamily" Value="Arial" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border x:Name="borderRound" Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						CornerRadius="5">
+						<ContentPresenter HorizontalAlignment="Center"
+									  VerticalAlignment="Center" />
+					</Border>
+					<ControlTemplate.Triggers>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="borderRound" Property="Background" Value="LightGray" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter TargetName="borderRound" Property="Background" Value="LightGray" />
+							<Setter TargetName="borderRound" Property="BorderBrush" Value="LightGray" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+
+			</Setter.Value>
+		</Setter>
+
+	</Style>
+	<Style x:Key="ActionFillButton" BasedOn="{StaticResource RoundedCornerButton}" TargetType="Button">
+		<Setter Property="Background" Value="#3798A9"/>
+		<Setter Property="Foreground" Value="#FCFCFC"/>
+		<Setter Property="BorderBrush" Value="#3798A9"/>
+	</Style>
+
+</ResourceDictionary>
